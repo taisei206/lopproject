@@ -29,4 +29,19 @@
 </table>
 
 <a href="{{route('lops.index')}}" class="btn btn-secondary">戻る</a>
+<!--コメント投稿-->
+<hr>
+<form method="POST" action="/lops/comment">
+    @csrf
+    <div class="form-group">
+        <input type="text" name="dream" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">コメントを投稿する</button>
+</form>
+<table class="table table-striped">
+    <tr>
+        <td>{{$lop->user()->name}}</td> 
+    </tr>
+
+</table>
 @endsection

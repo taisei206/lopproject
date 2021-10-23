@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('lops/cont','LopsController@cont')->name('lops.cont');
+
 Route::resource('lops','LopsController');//基本的な機能
 
 Auth::routes();

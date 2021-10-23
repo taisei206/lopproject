@@ -3,12 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Lop;
+use App\User;
 use Illuminate\Http\Request;
 use iLLuminate\Support\Facades\Auth;
+use Route;
 
 class LopsController extends Controller
 {
-        
+    public function __construct()
+    {
+        $action=Route::currentRouteAction();
+        $action_exp=explode('@',$action);
+        $action_name=end($action_exp);
+        $array=['create','edit','destroy','cont'];
+        if(in_array($action_name,$array)){
+            $this->middleware('auth');
+        }
+    }
     /**
      * Display a listing of the resource.
      *
@@ -101,5 +112,10 @@ class LopsController extends Controller
         //投稿削除
         $lop->delete();
         return redirect()->route('lops.index');
+    }
+
+    public function cont(){
+        $lops=User::find(Auth::user()->id)->lops;
+        return view('lops.cont',compact('lops'));
     }
 }
