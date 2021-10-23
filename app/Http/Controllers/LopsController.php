@@ -15,6 +15,9 @@ class LopsController extends Controller
     public function index()
     {
         //
+        #lopテーブルに入っているデータをすべて取ってくる
+        $lops=Lop::all();
+        return view("lops.index",compact('lops'));
     }
 
     /**
