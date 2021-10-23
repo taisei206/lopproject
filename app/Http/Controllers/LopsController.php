@@ -41,12 +41,7 @@ class LopsController extends Controller
     {
         //作成画面から送られた情報をデータベースに登録
         $lop=new Lop();
-        $lop->dream=$request->input("dream");
-        $lop->dreamwhy=$request->input("dreamwhy");
-        $lop->dreamdo=$request->input("dreamdo");
-        $lop->nowdo=$request->input("nowdo");
-        $lop->nowwhy=$request->input("nowwhy");
-        $lop->tovisitor=$request->input("tovisitor");
+        $lop->fill($request->all());
         $lop->save();
 
         return redirect()->route('lops.show',$lop);
@@ -72,7 +67,8 @@ class LopsController extends Controller
      */
     public function edit(Lop $lop)
     {
-        //
+        //編集
+        return view("lops.edit",compact('lop'));
     }
 
     /**
@@ -84,7 +80,11 @@ class LopsController extends Controller
      */
     public function update(Request $request, Lop $lop)
     {
-        //
+        //編集内容を登録
+        $lop->fill($request->all());
+        $lop->save();
+
+        return redirect()->route('lops.show',$lop);
     }
 
     /**
@@ -95,6 +95,8 @@ class LopsController extends Controller
      */
     public function destroy(Lop $lop)
     {
-        //
+        //投稿削除
+        $lop->delete();
+        return redirect()->route('lops.index');
     }
 }

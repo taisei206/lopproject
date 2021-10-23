@@ -17,7 +17,15 @@
         <td>{{$lop->dreamwhy}}</td>
         <td>{{$lop->nowdo}}</td>
         <td>{{$lop->nowwhy}}</td>
-        <td><a href="{{route('lops.show',$lop)}}" class="btn btn-info">詳細</a></td>
+        <td>
+            <a href="{{route('lops.edit',$lop)}}" class="btn btn-warning">編集</a>
+            <a href="{{route('lops.show',$lop)}}" class="btn btn-info">詳細</a>
+            <form action="/lops/{{$lop->id}}" method="POST" style="display: inline">
+            @method("DELETE")
+            @csrf
+            <button type="submit" class="btn btn-danger" onclick="return confirm('本当に削除しますか');">削除</button>
+            </form>
+        </td>
     </tr>
     @endforeach
 </table>
