@@ -14,7 +14,7 @@ class LopsController extends Controller
      */
     public function index()
     {
-        //
+        //一覧表示
         #lopテーブルに入っているデータをすべて取ってくる
         $lops=Lop::all();
         return view("lops.index",compact('lops'));
@@ -27,7 +27,8 @@ class LopsController extends Controller
      */
     public function create()
     {
-        //
+        //作成用画面表示
+        return view("lops.create");
     }
 
     /**
@@ -38,7 +39,17 @@ class LopsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //作成画面から送られた情報をデータベースに登録
+        $lop=new Lop();
+        $lop->dream=$request->input("dream");
+        $lop->dreamwhy=$request->input("dreamwhy");
+        $lop->dreamdo=$request->input("dreamdo");
+        $lop->nowdo=$request->input("nowdo");
+        $lop->nowwhy=$request->input("nowwhy");
+        $lop->tovisitor=$request->input("tovisitor");
+        $lop->save();
+
+        return redirect()->route('lops.show',$lop);
     }
 
     /**
@@ -49,7 +60,8 @@ class LopsController extends Controller
      */
     public function show(Lop $lop)
     {
-        //
+        //詳細表示
+        return view("lops.show",compact('lop'));
     }
 
     /**
