@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Lop;
 use Illuminate\Http\Request;
+use iLLuminate\Support\Facades\Auth;
 
 class LopsController extends Controller
 {
+        
     /**
      * Display a listing of the resource.
      *
@@ -42,6 +44,7 @@ class LopsController extends Controller
         //作成画面から送られた情報をデータベースに登録
         $lop=new Lop();
         $lop->fill($request->all());
+        $lop->user_id=Auth::user()->id;
         $lop->save();
 
         return redirect()->route('lops.show',$lop);

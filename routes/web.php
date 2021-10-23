@@ -15,4 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('lops','LopsController');
+Route::resource('lops','LopsController');//基本的な機能
+
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');//ログイン機能

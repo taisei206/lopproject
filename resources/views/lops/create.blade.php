@@ -1,4 +1,4 @@
-@extends('layouts.layouts')
+@extends('layouts.app')
 
 @section('content')
     <h1>生きる意味を投稿する</h1>
