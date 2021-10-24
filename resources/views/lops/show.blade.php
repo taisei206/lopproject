@@ -31,17 +31,20 @@
 <a href="{{route('lops.index')}}" class="btn btn-secondary">戻る</a>
 <!--コメント投稿-->
 <hr>
-<form method="POST" action="/lops/comment">
+<form method="POST" action="{{route('lops.comment',$lop)}}">
     @csrf
+    @method("POST")
     <div class="form-group">
-        <input type="text" name="dream" class="form-control">
+        <input type="text" name="comment" class="form-control">
     </div>
     <button type="submit" class="btn btn-primary">コメントを投稿する</button>
 </form>
+<p>{{$lop->comment->count()}}件</p>
 <table class="table table-striped">
+    @foreach ($lop->comment as $item)
     <tr>
-        <td>{{$lop->user()->name}}</td> 
+        <dt> {{$item->comment}}</dt>
     </tr>
-
+    @endforeach
 </table>
 @endsection

@@ -1,13 +1,9 @@
 @extends('layouts.app')
 @section('content')
-    
-@endsection
-
 <h1>投稿を編集</h1>
 <form action="/lops/{{$lop->id}}">
-</form>
-@csrf
-@method("PATCH")
+    @csrf
+    @method("PATCH")
     <div class="form-group">
         <label>意味or夢</label>
         <input type="text" name="dream" class="form-control" value="{{$lop->dream}}">
@@ -36,3 +32,8 @@
     
     <button type="submit" class="btn btn-primary">更新する</button>
     <a href="{{route('lops.index')}}" class="btn btn-secondary">戻る</a>
+
+</form>
+@endsection
+
+

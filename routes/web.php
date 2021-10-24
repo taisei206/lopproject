@@ -15,7 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('lops/cont','LopsController@cont')->name('lops.cont');
+Route::get('lops/cont','LopsController@cont')->name('lops.cont');//自分の投稿表示
+Route::post('lops/{lop}/comment','lopsController@comment')->name('lops.comment');//コメントデータベースに登録
 
 Route::resource('lops','LopsController');//基本的な機能
 

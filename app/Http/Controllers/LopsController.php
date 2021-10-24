@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Lop;
 use App\User;
+use App\Comment;
 use Illuminate\Http\Request;
 use iLLuminate\Support\Facades\Auth;
 use Route;
@@ -69,8 +70,8 @@ class LopsController extends Controller
      */
     public function show(Lop $lop)
     {
-        //詳細表示
-        return view("lops.show",compact('lop'));
+        //コメントと詳細表示
+        return view("lops.show",['lop'=>$lop]);
     }
 
     /**
@@ -115,7 +116,18 @@ class LopsController extends Controller
     }
 
     public function cont(){
+        //ログインユーザーの画面
         $lops=User::find(Auth::user()->id)->lops;
         return view('lops.cont',compact('lops'));
+    }
+
+    public function comment(Request $request,lop $lop){
+        //コメントをデータベースに登録
+        $comment=new Comment();
+        $comment->comment=$request->input('comment');
+        $comment->user_id=Auth::user()->id;
+        $comment->lop_id=$lop->id;
+        $comment->save();
+        return redirect()->route('lops.show',compact('lop'));
     }
 }
