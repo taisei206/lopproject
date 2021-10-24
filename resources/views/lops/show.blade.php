@@ -39,9 +39,9 @@
     </div>
     <button type="submit" class="btn btn-primary">コメントを投稿する</button>
 </form>
-<p>{{$lop->comment->count()}}件</p>
+<p>{{$comments->count()}}件</p>
 <table class="table table-striped">
-    @foreach ($lop->comment as $item)
+    @foreach ($comments as $item)
     <tr>
         <dt> {{$item->comment}}</dt>
     </tr>

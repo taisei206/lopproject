@@ -16,7 +16,7 @@ class LopsController extends Controller
         $action=Route::currentRouteAction();
         $action_exp=explode('@',$action);
         $action_name=end($action_exp);
-        $array=['create','edit','destroy','cont'];
+        $array=['create','edit','destroy','cont','comment'];
         if(in_array($action_name,$array)){
             $this->middleware('auth');
         }
@@ -30,7 +30,7 @@ class LopsController extends Controller
     {
         //一覧表示
         #lopテーブルに入っているデータをすべて取ってくる
-        $lops=Lop::all();
+        $lops=Lop::orderBy('created_at','desc')->paginate(10);
         return view("lops.index",compact('lops'));
     }
 
@@ -71,7 +71,8 @@ class LopsController extends Controller
     public function show(Lop $lop)
     {
         //コメントと詳細表示
-        return view("lops.show",['lop'=>$lop]);
+        $comments=Comment::where('lop_id',$lop->id)->orderBy('created_at','desc')->get();
+        return view("lops.show",['lop'=>$lop,'comments'=>$comments]);
     }
 
     /**

@@ -22,4 +22,5 @@
     </tr>
     @endforeach
 </table>
+<div>{{$lops->links()}}</div>
 @endsection
