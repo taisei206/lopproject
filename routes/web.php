@@ -11,11 +11,12 @@
 |
 */
 
-Route::get('/', 'LopsController@index');
+Route::get('/', 'LopsController@index');//welcomeページ
 
+Route::get('lops/squeeze','LopsController@squeeze')->name('lops.squeeze');//絞り込み検索画面
+Route::post('lops/squeeze','LopsController@squeezedo')->name('lops.squeezedo');//絞り込み検索処理
 Route::get('lops/cont','LopsController@cont')->name('lops.cont');//自分の投稿表示
 Route::post('lops/{lop}/comment','lopsController@comment')->name('lops.comment');//コメントデータベースに登録
-
 Route::resource('lops','LopsController');//基本的な機能
 
 Auth::routes();

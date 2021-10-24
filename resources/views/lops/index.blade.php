@@ -4,6 +4,7 @@
 <h1>生きる夢共有</h1>
 <a href="{{route('lops.create')}}" class="btn btn-success m-1">＋投稿</a>
 <a href="{{route('lops.cont')}}" class="btn btn-success m-1">自分の投稿</a>
+<a href="{{route('lops.squeeze')}}" class="btn btn-success m-1">人で検索する</a>
 {{--検索--}}
 <form class="form-inline my-2 my-lg-0 ml-2">
     <div class="form-group">

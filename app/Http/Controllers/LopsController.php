@@ -33,7 +33,7 @@ class LopsController extends Controller
         $lops=Lop::orderBy('created_at','desc')->where(function ($query) {
             // 検索機能
         if ($search = request('search')) {
-            $query->where('dream', 'LIKE', "%{$search}%")->orWhere('dream','LIKE',"%{$search}%")->orWhere('nowdo','LIKE',"%{$search}%")->orWhere('nowwhy','LIKE',"%{$search}%")
+            $query->where('dream', 'LIKE', "%{$search}%")->orWhere('dreamdo','LIKE',"%{$search}%")->orWhere('nowdo','LIKE',"%{$search}%")->orWhere('nowwhy','LIKE',"%{$search}%")
             ;
         }
         })->paginate(10);
@@ -136,5 +136,23 @@ class LopsController extends Controller
         $comment->lop_id=$lop->id;
         $comment->save();
         return redirect()->route('lops.show',compact('lop'));
+    }
+
+    //絞り込み検索画面
+    public function squeeze(){
+        return view('lops.squeeze');
+    }
+
+    //絞り込み検索処理
+    public function squeezedo(Request $req){
+            $users=User::orderBy('created_at','desc')
+                    ->where('name', 'LIKE', "%{$req->input('name')}%")
+                    ->where('gender','LIKE',"%{$req->input('gender')}%")
+                    ->where('age','LIKE',"%{$req->input('age')}%")
+                    ->where('occupation','LIKE',"%{$req->input('occupation')}%")
+                    ->where('likes','LIKE',"%{$req->input('likes')}%")
+                    ->paginate(10);
+
+        return view('lops.squeezedo',compact('users'));
     }
 }
