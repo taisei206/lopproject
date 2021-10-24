@@ -4,6 +4,13 @@
 <h1>生きる夢共有</h1>
 <a href="{{route('lops.create')}}" class="btn btn-success">＋投稿</a>
 <a href="{{route('lops.cont')}}" class="btn btn-success">自分の投稿</a>
+{{--検索--}}
+<form class="form-inline my-2 my-lg-0 ml-2">
+    <div class="form-group">
+    <input type="search" class="form-control mr-sm-2" name="search"  value="{{request('search')}}" placeholder="キーワードを入力" aria-label="検索...">
+    </div>
+    <input type="submit" value="検索" class="btn btn-info">
+</form>
 <table class="table">
     <tr>
         <th>目的or夢</th> 
@@ -22,5 +29,6 @@
     </tr>
     @endforeach
 </table>
+{{--ページネーション--}}
 <div>{{$lops->links()}}</div>
 @endsection

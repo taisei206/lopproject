@@ -29,8 +29,14 @@ class LopsController extends Controller
     public function index()
     {
         //一覧表示
-        #lopテーブルに入っているデータをすべて取ってくる
-        $lops=Lop::orderBy('created_at','desc')->paginate(10);
+        #lopテーブルに入っているデータをすべて取ってくるor検索されていたら絞る
+        $lops=Lop::orderBy('created_at','desc')->where(function ($query) {
+            // 検索機能
+        if ($search = request('search')) {
+            $query->where('dream', 'LIKE', "%{$search}%")->orWhere('dream','LIKE',"%{$search}%")->orWhere('nowdo','LIKE',"%{$search}%")->orWhere('nowwhy','LIKE',"%{$search}%")
+            ;
+        }
+        })->paginate(10);
         return view("lops.index",compact('lops'));
     }
 
