@@ -166,4 +166,13 @@ class LopsController extends Controller
 
         return view('lops.squeezedo',compact('users'));
     }
+
+    //人で検索後に投稿を見る処理
+    public function detail(User $user){
+        $user=User::find($user->id);
+        $lops=Lop::where('user_id', $user->id) //$userによる投稿を取得
+        ->orderBy('created_at', 'desc') // 投稿作成日が新しい順に並べる
+        ->paginate(10);
+        return view('lops.index',compact('lops'));
+    }
 }

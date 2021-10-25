@@ -13,6 +13,7 @@
 
 Route::get('/', 'LopsController@index');//welcomeページ
 
+Route::get('lops/detail/{user}','LopsController@detail')->name('lops.detail');//人で検索後に投稿を見る
 Route::get('lops/squeeze','LopsController@squeeze')->name('lops.squeeze');//絞り込み検索画面
 Route::post('lops/squeeze','LopsController@squeezedo')->name('lops.squeezedo');//絞り込み検索処理
 Route::get('lops/cont','LopsController@cont')->name('lops.cont');//自分の投稿表示
