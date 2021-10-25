@@ -1,33 +1,44 @@
 @extends('layouts.app')
 
 @section('content')
-<table class="table table-striped">
-    <tr>
-        <th>目的or夢</th> 
-        <td>{{$lop->dream}}</td> 
-    </tr>
-    <tr>
-        <th>なぜその夢なのか</th>
-        <td>{{$lop->dreamwhy}}</td>
-    </tr>
-    <tr>
-        <th>達成のためにやっていること</th> 
-        <td>{{$lop->dreamdo}}</td> 
-    </tr>
-    <tr>
-        <th>今やっていること</th>
-        <td>{{$lop->nowdo}}</td>
-    </tr>
-    <tr>
-        <th>なぜ今それをやっているのか</th>
-        <td>{{$lop->nowwhy}}</td>
-    </tr>
-    <tr>
-        <th>見た人へ</th> 
-        <td>{{$lop->tovisitor}}</td>
-    </th>
-</table>
-
+<div class="row align-items-strech">
+    <div class="card m-1" >
+        <div class="card-body bg-my1">
+        <h5 class="card-title">目的・夢</h5>
+        <p class="card-text">{{$lop->dream}}</p>
+        </div>
+    </div>
+    <div class="card m-1" >
+        <div class="card-body bg-info">
+        <h5 class="card-title">なぜその夢なのか</h5>
+        <p class="card-text">{{$lop->dreamwhy}}</p>
+        </div>
+    </div>
+    <div class="card m-1" >
+        <div class="card-body bg-info">
+        <h5 class="card-title">達成のためにやっていること</h5>
+        <p class="card-text">{{$lop->dreamdo}}</p>
+        </div>
+    </div>
+    <div class="card m-1" >
+        <div class="card-body bg-success">
+        <h5 class="card-title">今やっていること</h5>
+        <p class="card-text">{{$lop->nowdo}}</p>
+        </div>
+    </div>
+    <div class="card m-1">
+        <div class="card-body bg-success">
+        <h5 class="card-title">なぜ今それをやっているのか</h5>
+        <p class="card-text">{{$lop->nowwhy}}</p>
+        </div>
+    </div>
+    <div class="card m-1">
+        <div class="card-body bg-secondary">
+        <h5 class="card-title">見た人へ</h5>
+        <p class="card-text">{{$lop->tovisitor}}</p>
+        </div>
+    </div>
+</div>
 <a href="{{route('lops.index')}}" class="btn btn-secondary">戻る</a>
 <!--コメント投稿-->
 <hr>
@@ -39,12 +50,16 @@
     </div>
     <button type="submit" class="btn btn-primary">コメントを投稿する</button>
 </form>
-<p>{{$comments->count()}}件</p>
-<table class="table table-striped">
+<p>合計{{$comments->count()}}件</p>
+<div class="row align-items-strech">
     @foreach ($comments as $item)
-    <tr>
-        <dt> {{$item->comment}}</dt>
-    </tr>
+    <div class="card m-1">
+        <div class="card-body bg-my1">
+        <p class="card-text">{{$item->comment}}</p>
+        </div>
+    </div>
     @endforeach
-</table>
+</div>
+
 @endsection
+

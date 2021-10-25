@@ -16,7 +16,7 @@
 <div class="row align-items-strech">
     @foreach ($lops as $lop)
     <div class="card m-1" style="width: 18rem;">
-        <div class="card-body">
+        <div class="card-body bg-my-index">
         <h5 class="card-title">{{$lop->dream}}</h5>
         <h6 class="card-subtitle mb-2 text-muted">{{$lop->user->name}}：{{$lop->user->occupation}}：{{$lop->user->age}}歳：{{$lop->user->likes}}</h6>
         <p class="card-text">{!! nl2br(e(Str::limit($lop->dreamwhy, 100))) !!}</p>
