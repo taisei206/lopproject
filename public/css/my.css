@@ -1,7 +1,29 @@
 .bg-my1{
-    background-color: #eee8aa;
+    background-color: #afeeee;
 }
 
-.bg-my-index{
+.bg-my-h{
     background-color: #e6e6fa;
+}
+
+.bg-my-j{
+    background-color: #33ffff;
+}
+.bg-my-wide{
+    background-color: #e0ffff;
+}
+.my-border1{
+    border-width: 3px;
+    border-color: #99ccff;
+
+}
+
+.my-border2{
+    border-width: 3px;
+    border-color: #9999cc;
+}
+
+.my-border3{
+    border-width: 3px;
+    border-color: #ffcccc;
 }
