@@ -30,10 +30,13 @@
     
                             <!-- 年齢の入力欄 -->
                             <div class="form-group row">
-                                <label for="age" class="col-md-4 col-form-label text-md-right">年齢|age</label>
-    
+                                <label for="ageunder" class="col-md-4 col-form-label text-md-right">年齢|下限</label>
                                 <div class="col-md-6">
-                                    <input id="age" type="number" min="1" class="form-control" name="age" placeholder="半角数字で入力(空欄でもOKです)">
+                                    <input id="age" type="number" min="1" class="form-control" name="ageunder" placeholder="半角数字で入力(必須項目)" required>
+                                </div>
+                                <label for="ageup" class="col-md-4 col-form-label text-md-right">年齢|上限</label>
+                                <div class="col-md-6">
+                                    <input id="age" type="number" min="1" class="form-control" name="ageup" placeholder="半角数字で入力(必須項目)" required>
                                 </div>
                             </div>
     

@@ -145,13 +145,24 @@ class LopsController extends Controller
 
     //絞り込み検索処理
     public function squeezedo(Request $req){
-            $users=User::orderBy('created_at','desc')
-                    ->where('name', 'LIKE', "%{$req->input('name')}%")
-                    ->where('gender','LIKE',"%{$req->input('gender')}%")
-                    ->where('age','LIKE',"%{$req->input('age')}%")
-                    ->where('occupation','LIKE',"%{$req->input('occupation')}%")
-                    ->where('likes','LIKE',"%{$req->input('likes')}%")
-                    ->paginate(10);
+        $ageunder=0;//年齢下限値
+        $ageup=0;//年齢上限値
+        if($req->input('ageunder')){
+            global $ageunder;
+            $ageunder=(int)$req->input('ageunder');
+        }
+
+        if($req->input('ageup')){
+            global $ageup;
+            $ageup=(int)$req->input('ageup');
+        }
+        $users=User::orderBy('created_at','desc')
+            ->where('name', 'LIKE', "%{$req->input('name')}%")
+            ->where('gender','LIKE',"%{$req->input('gender')}%")
+            ->whereBetween('age',[$ageunder,$ageup])
+            ->where('occupation','LIKE',"%{$req->input('occupation')}%")
+            ->where('likes','LIKE',"%{$req->input('likes')}%")
+            ->paginate(10);
 
         return view('lops.squeezedo',compact('users'));
     }
