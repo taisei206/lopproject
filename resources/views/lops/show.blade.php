@@ -39,7 +39,7 @@
         </div>
     </div>
 </div>
-<a href="{{route('lops.index')}}" class="btn btn-secondary rounded">戻る</a>
+<a href="{{route('lops.index')}}" class="btn btn-secondary rounded">一覧に戻る</a>
 <!--コメント投稿-->
 <hr>
 <form method="POST" action="{{route('lops.comment',$lop)}}">

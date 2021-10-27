@@ -11,7 +11,7 @@
                             @csrf
                             <!-- 名前の入力欄 -->
                             <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">ニックネーム|Name</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-right">ニックネーム：Name</label>
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control" name="name" placeholder="空欄でもOKです" value="{{old('name')}}">
                                 </div>
@@ -21,7 +21,7 @@
                             </div>
                             <!-- 性別の入力欄 -->
                             <div class="form-group row">
-                                <label for="gender" class="col-md-4 col-form-label text-md-right">性別|Gender<br>(空欄でもOKです。)</label>
+                                <label for="gender" class="col-md-4 col-form-label text-md-right">性別：Gender<br>(空欄でもOKです。)</label>
                                 <div class="col-md-6" style="padding-top: 8px">
                                     <input id="gender-m" type="radio" name="gender" value="男性">
                                     <label for="gender-m">男性</label>
@@ -32,11 +32,11 @@
     
                             <!-- 年齢の入力欄 -->
                             <div class="form-group row">
-                                <label for="ageunder" class="col-md-4 col-form-label text-md-right">年齢|下限</label>
+                                <label for="ageunder" class="col-md-4 col-form-label text-md-right">年齢：下限</label>
                                 <div class="col-md-6">
                                     <input id="age" type="number" min="1" class="form-control" name="ageunder" placeholder="半角数字で入力(必須項目)" required>
                                 </div>
-                                <label for="ageup" class="col-md-4 col-form-label text-md-right">年齢|上限</label>
+                                <label for="ageup" class="col-md-4 col-form-label text-md-right">年齢：上限</label>
                                 <div class="col-md-6">
                                     <input id="age" type="number" min="1" class="form-control" name="ageup" placeholder="半角数字で入力(必須項目)" required>
                                 </div>
@@ -44,7 +44,7 @@
     
                             <!-- 職業の入力欄 -->
                             <div class="form-group row">
-                                <label for="occupation" class="col-md-4 col-form-label text-md-right">職業|occupation</label>
+                                <label for="occupation" class="col-md-4 col-form-label text-md-right">職業：occupation</label>
                                 
                                 <div class="col-md-6" style="padding-top: 8px">
                                     <input id="occupation" type="text" name="occupation" placeholder="空欄でもOKです" value="{{old('occupation')}}">
@@ -56,7 +56,7 @@
     
                             <!-- 趣味・好きなことの入力欄 -->
                             <div class="form-group row">
-                                <label for="gender" class="col-md-4 col-form-label text-md-right">趣味・好きなこと|likes</label>
+                                <label for="gender" class="col-md-4 col-form-label text-md-right">趣味・好きなこと：likes</label>
                                 
                                 <div class="col-md-6" style="padding-top: 8px">
                                     <input id="likes" type="text" name="likes" placeholder="空欄でもOKです" value="{{old('likes')}}">

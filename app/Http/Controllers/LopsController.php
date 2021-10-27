@@ -10,8 +10,12 @@ use iLLuminate\Support\Facades\Auth;
 use Route;
 use Illuminate\Support\Facades\Validator;
 
+//定数宣言
+define("PAGI_NUM", 9);
+
 class LopsController extends Controller
 {
+    //作成、編集、削除、投稿者の一覧表示、コメントをするをログイン必須とする
     public function __construct()
     {
         $action=Route::currentRouteAction();
@@ -32,12 +36,12 @@ class LopsController extends Controller
         //一覧表示
         #lopテーブルに入っているデータをすべて取ってくるor検索されていたら絞る
         $lops=Lop::orderBy('created_at','desc')->where(function ($query) {
-            // 検索機能
+            // 投稿された内容に対して検索機能
         if ($search = request('search')) {
-            $query->where('dream', 'LIKE', "%{$search}%")->orWhere('dreamdo','LIKE',"%{$search}%")->orWhere('nowdo','LIKE',"%{$search}%")->orWhere('nowwhy','LIKE',"%{$search}%")
+            $query->where('dream', 'LIKE', "%{$search}%")->orWhere('dreamwhy','LIKE',"%{$search}%")->orWhere('dreamdo','LIKE',"%{$search}%")->orWhere('nowdo','LIKE',"%{$search}%")->orWhere('nowwhy','LIKE',"%{$search}%")
             ;
         }
-        })->paginate(10);
+        })->paginate(PAGI_NUM);
         return view("lops.index",compact('lops'));
     }
 
@@ -161,17 +165,12 @@ class LopsController extends Controller
                         ->withInput();
         }
 
-        $lop->dream=$request->input("dream");
-        $lop->dreamwhy=$request->input("dreamwhy");
-        $lop->dreamdo=$request->input("dreamdo");
-        $lop->nowdo=$request->input("nowdo");
-        $lop->nowwhy=$request->input("nowwhy");
-        $lop->tovisitor=$request->input("tovisitor");
         //編集内容を登録
         $lop->fill($request->all());
         $lop->save();
 
-        return redirect()->route('lops.show',$lop);
+        $lops=User::find(Auth::user()->id)->lops;
+        return view('lops.cont',compact('lops'));
     }
 
     /**
@@ -188,7 +187,7 @@ class LopsController extends Controller
     }
 
     public function cont(){
-        //ログインユーザーの画面
+        //ログインユーザーの投稿一覧画面
         $lops=User::find(Auth::user()->id)->lops;
         return view('lops.cont',compact('lops'));
     }
@@ -200,6 +199,7 @@ class LopsController extends Controller
         $comment->user_id=Auth::user()->id;
         $comment->lop_id=$lop->id;
         $comment->save();
+        //詳細画面にリダイレクト
         return redirect()->route('lops.show',compact('lop'));
     }
 
@@ -236,6 +236,7 @@ class LopsController extends Controller
 
         $ageunder=0;//年齢下限値
         $ageup=0;//年齢上限値
+        //年齢上限値や年齢下限値が入力されていたら年齢の値に代入する
         if($req->input('ageunder')){
             global $ageunder;
             $ageunder=(int)$req->input('ageunder');
@@ -245,14 +246,15 @@ class LopsController extends Controller
             global $ageup;
             $ageup=(int)$req->input('ageup');
         }
+        //DBに検索をかける
         $users=User::orderBy('created_at','desc')
             ->where('name', 'LIKE', "%{$req->input('name')}%")
             ->where('gender','LIKE',"%{$req->input('gender')}%")
             ->whereBetween('age',[$ageunder,$ageup])
             ->where('occupation','LIKE',"%{$req->input('occupation')}%")
             ->where('likes','LIKE',"%{$req->input('likes')}%")
-            ->paginate(10);
-
+            ->paginate(PAGI_NUM);
+        //絞り込み後の画面を表示
         return view('lops.squeezedo',compact('users'));
     }
 
@@ -261,7 +263,8 @@ class LopsController extends Controller
         $user=User::find($user->id);
         $lops=Lop::where('user_id', $user->id) //$userによる投稿を取得
         ->orderBy('created_at', 'desc') // 投稿作成日が新しい順に並べる
-        ->paginate(10);
+        ->paginate(PAGI_NUM);
+        //人の投稿一覧を表示する
         return view('lops.index',compact('lops'));
     }
 }
