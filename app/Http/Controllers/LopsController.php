@@ -210,6 +210,30 @@ class LopsController extends Controller
 
     //絞り込み検索処理
     public function squeezedo(Request $req){
+
+        //バリデーション
+
+        $message = [
+            'name.max'=>'100字以下にしてくさい',
+            'occupation.max' => '100字以下にしてくさい',
+            'likes.max' => '100字以下にしてくさい',
+          ];
+
+        $rules=[
+            'name'=>'max:100',
+            'occupation'=>'max:100',
+            'likes'=>'max:100'
+        ];
+
+        $validator = Validator::make($req->all(), $rules, $message);
+
+        if ($validator->fails()) {
+            return redirect()->
+                        route('lops.squeeze')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
         $ageunder=0;//年齢下限値
         $ageup=0;//年齢上限値
         if($req->input('ageunder')){
