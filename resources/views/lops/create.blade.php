@@ -7,28 +7,45 @@
         @csrf
         <div class="form-group">
             <label>意味or夢</label>
-            <input type="text" name="dream" class="form-control"  placeholder="必須項目です。">
+            @error('dream')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+            <input type="text" name="dream" class="form-control"  placeholder="必須項目です。" value="{{old('dream')}}">
         </div>
         <div class="form-group">
             <label>なんでそれが生きる意味or目的になっているの？</label>
-         {{-- <input type="text" name="dreamwhy" class="form-control">--}}
-            <textarea name="dreamwhy" cols="30" rows="5" class="form-control" placeholder="空欄でもOKです。"></textarea>
+            @error('dreamwhy')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+            <textarea name="dreamwhy" cols="30" rows="5" class="form-control" placeholder="空欄でもOKです。">{{old('dreamwhy')}}</textarea>
         </div>
         <div class="form-group">
             <label>その実現のために何をしている？</label>
-            <textarea name="dreamdo" cols="30" rows="5" class="form-control" placeholder="空欄でもOKです。"></textarea>
+            @error('dreamdo')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+            <textarea name="dreamdo" cols="30" rows="5" class="form-control" placeholder="空欄でもOKです。">{{old('dreamdo')}}</textarea>
         </div>
         <div class="form-group">
             <label>現在何をしている？</label>
-            <input type="text" name="nowdo" class="form-control" placeholder="空欄でもOKです。">
+            @error('nowdo')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+            <input type="text" name="nowdo" class="form-control" placeholder="空欄でもOKです。" value="{{old('nowdo')}}">
         </div>
         <div class="form-group">
             <label>なんで現在それをやっているのか</label>
-            <textarea name="nowwhy" cols="30" rows="5" class="form-control"  placeholder="空欄でもOKです。"></textarea>
+            @error('nowwhy')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+            <textarea name="nowwhy" cols="30" rows="5" class="form-control"  placeholder="空欄でもOKです。" >{{old('nowwhy')}}</textarea>
         </div>
         <div class="form-group">
             <label>見た人へ言葉</label>
-            <input type="text" name="tovisitor" class="form-control"  placeholder="空欄でもOKです。">
+            @error('tovisitor')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+            <input type="text" name="tovisitor" class="form-control"  placeholder="空欄でもOKです。" value="{{old('tovisitor')}}">
         </div>
         
         <button type="submit" class="btn btn-primary">投稿する</button>

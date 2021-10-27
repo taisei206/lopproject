@@ -1,33 +1,50 @@
 @extends('layouts.app')
 @section('content')
 <h1>投稿を編集</h1>
-<form action="/lops/{{$lop->id}}">
+<form action="/lops/{{$lop->id}}" method="POST">
     @csrf
     @method("PATCH")
     <div class="form-group">
         <label>意味or夢</label>
-        <input type="text" name="dream" class="form-control" value="{{$lop->dream}}">
+        @error('dream')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <input type="text" name="dream" class="form-control" value="@if (old('dream')) {{old('dream')}} @else {{$lop->dream}} @endif" required>
     </div>
     <div class="form-group">
         <label>なんでそれが生きる意味or目的になっているの？</label>
-     {{-- <input type="text" name="dreamwhy" class="form-control">--}}
-        <textarea name="dreamwhy" cols="30" rows="5" class="form-control" value="{{$lop->dreamwhy}}"></textarea>
+        @error('dreamwhy')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        <textarea name="dreamwhy" cols="30" rows="5" class="form-control">@if (old('dreamwhy')) {{old('dreamwhy')}} @else {{$lop->dreamwhy}} @endif</textarea>
     </div>
     <div class="form-group">
         <label>その実現のために何をしている？</label>
-        <textarea name="dreamdo" cols="30" rows="5" class="form-control" value="{{$lop->dreamdo}}"></textarea>
+        @error('dreamdo')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        <textarea name="dreamdo" cols="30" rows="5" class="form-control">@if (old('dreamdo')) {{old('dreamdo')}} @else {{$lop->dreamdo}} @endif</textarea>
     </div>
     <div class="form-group">
         <label>現在何をしている？</label>
-        <input type="text" name="nowdo" class="form-control" value="{{$lop->nowdo}}">
+        @error('nowdo')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        <input type="text" name="nowdo" class="form-control" value="@if (old('nowdo')) {{old('nowdo')}} @else {{$lop->nowdo}} @endif">
     </div>
     <div class="form-group">
         <label>なんで現在それをやっているのか</label>
-        <textarea name="nowwhy" cols="30" rows="5" class="form-control" value="{{$lop->nowwhy}}"></textarea>
+        @error('nowwhy')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        <textarea name="nowwhy" cols="30" rows="5" class="form-control">@if (old('nowwhy')) {{old('nowwhy')}} @else {{$lop->nowwhy}} @endif</textarea>
     </div>
     <div class="form-group">
         <label>見た人へ言葉</label>
-        <input type="text" name="tovisitor" class="form-control" value="{{$lop->tovisitor}}">
+        @error('tovisitor')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        <input type="text" name="tovisitor" class="form-control" value="@if (old('tovisitor')) {{old('tovisitor')}} @else {{$lop->tovisitor}} @endif">
     </div>
     
     <button type="submit" class="btn btn-primary">更新する</button>
@@ -35,5 +52,3 @@
 
 </form>
 @endsection
-
-

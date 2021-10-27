@@ -8,6 +8,7 @@ use App\Comment;
 use Illuminate\Http\Request;
 use iLLuminate\Support\Facades\Auth;
 use Route;
+use Illuminate\Support\Facades\Validator;
 
 class LopsController extends Controller
 {
@@ -59,6 +60,34 @@ class LopsController extends Controller
      */
     public function store(Request $request)
     {
+        //バリデーション
+
+        $message = [
+            'dream.required' => '名前を入力してください',
+            'dream.max'=>'200字以下にしてくさい',
+            'dreamwhy.max' => '500字以下にしてくさい',
+            'dreamdo.max' => '500字以下にしてくさい',
+            'nowdo.max' => '200字以下にしてくさい',
+            'nowwhy.max'=>'500字以下にしてくさい',
+            'tovisitor.max'=>'200字以下にしてくさい',
+          ];
+
+        $rules=[
+            'dream'=>'required|max:200',
+            'dreamwhy'=>'max:500',
+            'dreamdo'=>'max:500',
+            'nowdo'=>'max:200',
+            'nowwhy'=>'max:500',
+            'tovisitor'=>'max:200'
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $message);
+
+        if ($validator->fails()) {
+            return redirect('lops/create')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
         //作成画面から送られた情報をデータベースに登録
         $lop=new Lop();
         $lop->fill($request->all());
@@ -102,6 +131,42 @@ class LopsController extends Controller
      */
     public function update(Request $request, Lop $lop)
     {
+        //バリデーション
+
+        $message = [
+            'dream.required' => 'タイトルを入力してください',
+            'dream.max'=>'200字以下にしてくさい',
+            'dreamwhy.max' => '500字以下にしてくさい',
+            'dreamdo.max' => '500字以下にしてくさい',
+            'nowdo.max' => '200字以下にしてくさい',
+            'nowwhy.max'=>'500字以下にしてくさい',
+            'tovisitor.max'=>'200字以下にしてくさい',
+          ];
+
+        $rules=[
+            'dream'=>'required|max:200',
+            'dreamwhy'=>'max:500',
+            'dreamdo'=>'max:500',
+            'nowdo'=>'max:200',
+            'nowwhy'=>'max:500',
+            'tovisitor'=>'max:200'
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $message);
+
+        if ($validator->fails()) {
+            return redirect()->
+                        route('lops.edit',['lop' => $lop])
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
+        $lop->dream=$request->input("dream");
+        $lop->dreamwhy=$request->input("dreamwhy");
+        $lop->dreamdo=$request->input("dreamdo");
+        $lop->nowdo=$request->input("nowdo");
+        $lop->nowwhy=$request->input("nowwhy");
+        $lop->tovisitor=$request->input("tovisitor");
         //編集内容を登録
         $lop->fill($request->all());
         $lop->save();
