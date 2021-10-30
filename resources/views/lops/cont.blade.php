@@ -15,6 +15,7 @@
         <p class="card-text"><p class="bg-my-h">見た人へ：</p>{!! nl2br(e(Str::limit($lop->tovisitor, 300))) !!}</p>
         @if ($lop->user==Auth::user())
         <a href="{{route('lops.edit',$lop)}}" class="btn btn-warning">編集</a>
+        <a href="{{route('lops.show',$lop)}}" class="btn btn-info">コメントを見る</a>
         <form action="/lops/{{$lop->id}}" method="POST" style="display: inline">
             @method("DELETE")
             @csrf
@@ -25,7 +26,6 @@
     </div>
     @endforeach
 </div>
-<a href="{{route('lops.index')}}" class="btn btn-secondary">一覧に戻る</a>
 
 @endsection
 

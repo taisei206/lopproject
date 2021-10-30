@@ -50,5 +50,6 @@
     <button type="submit" class="btn btn-primary">更新する</button>
     <a href="{{route('lops.index')}}" class="btn btn-secondary">一覧に戻る</a>
 
+
 </form>
 @endsection

@@ -217,12 +217,14 @@ class LopsController extends Controller
             'name.max'=>'100字以下にしてくさい',
             'occupation.max' => '100字以下にしてくさい',
             'likes.max' => '100字以下にしてくさい',
+            'area.max' => '100字以下にしてくさい',
           ];
 
         $rules=[
             'name'=>'max:100',
             'occupation'=>'max:100',
-            'likes'=>'max:100'
+            'likes'=>'max:100',
+            'area' => 'max:100',
         ];
 
         $validator = Validator::make($req->all(), $rules, $message);
@@ -234,8 +236,8 @@ class LopsController extends Controller
                         ->withInput();
         }
 
-        $ageunder=0;//年齢下限値
-        $ageup=0;//年齢上限値
+        $ageunder=1;//年齢下限値
+        $ageup=150;//年齢上限値
         //年齢上限値や年齢下限値が入力されていたら年齢の値に代入する
         if($req->input('ageunder')){
             global $ageunder;
@@ -257,6 +259,7 @@ class LopsController extends Controller
         //絞り込み後の画面を表示
         return view('lops.squeezedo',compact('users'));
     }
+
 
     //人で検索後に投稿を見る処理
     public function detail(User $user){

@@ -34,14 +34,26 @@
                             <div class="form-group row">
                                 <label for="ageunder" class="col-md-4 col-form-label text-md-right">年齢：下限</label>
                                 <div class="col-md-6">
-                                    <input id="age" type="number" min="1" class="form-control" name="ageunder" placeholder="半角数字で入力(必須項目)" required>
+                                    <input id="age" type="number" min="1" class="form-control" name="ageunder" placeholder="半角数字で入力(必須項目)" >
                                 </div>
                                 <label for="ageup" class="col-md-4 col-form-label text-md-right">年齢：上限</label>
                                 <div class="col-md-6">
-                                    <input id="age" type="number" min="1" class="form-control" name="ageup" placeholder="半角数字で入力(必須項目)" required>
+                                    <input id="age" type="number" min="1" class="form-control" name="ageup" placeholder="半角数字で入力(必須項目)">
                                 </div>
                             </div>
-    
+
+                            <!-- 住んでる場所の入力欄 -->
+                            <div class="form-group row">
+                                <label for="occupation" class="col-md-4 col-form-label text-md-right">住んでる場所：area</label>
+                                
+                                <div class="col-md-6" style="padding-top: 8px">
+                                    <input id="occupation" type="text" name="occupation" placeholder="空欄でもOKです" value="{{old('area')}}">
+                                </div>
+                                @error('area')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+        
                             <!-- 職業の入力欄 -->
                             <div class="form-group row">
                                 <label for="occupation" class="col-md-4 col-form-label text-md-right">職業：occupation</label>
