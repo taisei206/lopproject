@@ -4,10 +4,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.79.0">
-    <title>MOL|MeanigOfLife</title>
+    <meta name=”description” content=”なぜ生きているのか。それを多くの人は考える。生きる意味を見出せる人もいれば見いだせない人もいる。ここではいろいろな人の生きる意味を見て参考にしたり、共感できるサイトです。覗いてみませんか”>
+    <title>生きる意味を共有しよう・LOP|LifeOfPurpose</title>
 
     <link rel="canonical" href="https://getbootstrap.jp/docs/5.0/examples/cover/">
 
@@ -42,10 +40,6 @@
         }
       }
     </style>
-
-    
-    <!-- Custom styles for this template -->
-    <link href="cover.css" rel="stylesheet">
   </head>
   <body class="d-flex h-100 text-center text-white bg-dark">
     

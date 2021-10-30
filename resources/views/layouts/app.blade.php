@@ -3,11 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name=”description” content=”なぜ生きているのか。それを多くの人は考える。生きる意味を見出せる人もいれば見いだせない人もいる。ここではいろいろな人の生きる意味を見て参考にしたり、共感できるサイトです。覗いてみませんか”>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'LOP|LifeOfPurpose') }}</title>
+    <title>生きる意味を共有しよう・LOP|LifeOfPurpose</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
