@@ -193,6 +193,23 @@ class LopsController extends Controller
     }
 
     public function comment(Request $request,lop $lop){
+
+        $message = [
+            'comment.max' => '100文字以下にしてください',
+          ];
+
+        $rules=[
+            'comment'=>'max:100',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $message);
+
+        if ($validator->fails()) {
+            return redirect()->
+                        route('lops.show',['lop' => $lop])
+                        ->withErrors($validator)
+                        ->withInput();
+        }
         //コメントをデータベースに登録
         $comment=new Comment();
         $comment->comment=$request->input('comment');

@@ -27,3 +27,17 @@
     border-width: 3px;
     border-color: #ffcccc;
 }
+
+.my-white{
+    background-color: #fff;
+    display: table;
+}
+
+h5{
+    font-family: "Hannari";
+    font-weight: bold;
+}
+
+.bg-my-wide{
+    background-color: #2e3963;
+}

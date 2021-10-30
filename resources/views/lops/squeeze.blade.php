@@ -1,12 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>絞り込み検索</h1>
+    <h1 style="color: white">絞り込み検索</h1>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
+                        <a href="{{route('lops.index')}}" class="btn btn-secondary rounded">一覧に戻る</a>
                         <form method="POST" action="{{route('lops.squeezedo')}}">
                             @csrf
                             <!-- 名前の入力欄 -->
@@ -86,6 +87,7 @@
                                 </div>
                             </div>
                         </form>
+                        
                     </div>
                 </div>
             </div>

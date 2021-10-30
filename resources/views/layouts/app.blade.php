@@ -15,17 +15,27 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/my.css') }}" rel="stylesheet">
+    <style type="text/css">
+        body {
+           background-color: #2e3963;            /* 背景色 */
+           background-image: url({{ asset('images/haikei5.jpg') }}); /* 画像 */
+           background-size: cover;               /* 全画面 */
+           background-attachment: fixed;         /* 固定 */
+           background-position: center center;   /* 縦横中央 */
+        }
+        </style>
 </head>
 <body>
-    <div id="app" class="bg-my-wide">
+    <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'LOP') }}
+                    {{ config('app.name', 'MOL|MeanigOfLife') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -73,7 +83,7 @@
             </div>
         </nav>
 
-        <main class="py-4 container bg-my-wide">
+        <main class="py-4 container bg-my-wide rounded">
             @yield('content')
         </main>
     </div>

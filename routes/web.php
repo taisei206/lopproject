@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'LopsController@index');//welcomeページ
+Route::get('/', function(){return view('firstpage');});//welcomeページ
 
 Route::get('lops/detail/{user}','LopsController@detail')->name('lops.detail');//人で検索後に投稿を見る
 Route::get('lops/squeeze','LopsController@squeeze')->name('lops.squeeze');//絞り込み検索画面

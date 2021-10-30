@@ -42,16 +42,20 @@
 <a href="{{route('lops.index')}}" class="btn btn-secondary rounded">一覧に戻る</a>
 <!--コメント投稿-->
 <hr>
+@error('comment')
+    <div class="alert alert-danger">{{ $message }}</div>
+    @enderror
 <form method="POST" action="{{route('lops.comment',$lop)}}">
     @csrf
     @method("POST")
     <div class="form-group">
-        <input type="text" name="comment" class="form-control">
+        <input type="text" name="comment" class="form-control"  value="{{old('comment')}}" placeholder="ここにコメントを書き込む">
     </div>
     <button type="submit" class="btn btn-primary">コメントを投稿する</button>
 </form>
-<p>合計{{$comments->count()}}件</p>
+<p style="color:white;">合計{{$comments->count()}}件</p>
 <div class="row align-items-strech">
+    
     @foreach ($comments as $comment)
     <div class="card m-1">
         <div class="card-body bg-my1">
