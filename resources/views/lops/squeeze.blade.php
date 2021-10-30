@@ -42,17 +42,17 @@
                                 </div>
                             </div>
 
-                            <!-- 住んでる場所の入力欄 -->
+                            <!-- 住んでる場所の入力欄 
                             <div class="form-group row">
-                                <label for="occupation" class="col-md-4 col-form-label text-md-right">住んでる場所：area</label>
+                                <label for="area" class="col-md-4 col-form-label text-md-right">住んでる場所：area</label>
                                 
                                 <div class="col-md-6" style="padding-top: 8px">
-                                    <input id="occupation" type="text" name="occupation" placeholder="空欄でもOKです" value="{{old('area')}}">
+                                    <input id="area" type="text" name="area" placeholder="空欄でもOKです" value="{{old('area')}}">
                                 </div>
                                 @error('area')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
-                            </div>
+                            </div>-->
         
                             <!-- 職業の入力欄 -->
                             <div class="form-group row">

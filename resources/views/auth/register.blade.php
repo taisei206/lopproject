@@ -94,19 +94,19 @@
                             </div>
                         </div>
 
-                        <!-- 住んでる場所の入力欄 -->
+                        <!-- 住んでる場所の入力欄 
                         <div class="form-group row">
                             <label for="area" class="col-md-4 col-form-label text-md-right">住んでる場所：area</label>
 
                             <div class="col-md-6" style="padding-top: 8px">
-                                <input id="occupation" type="text" name="area" placeholder="必須項目です" required placeholder="必須項目です" value="{{old('area')}}">
+                                <input id="area" type="text" name="area" required placeholder="必須項目です" value="{{old('area')}}">
                                 @if ($errors->has('area'))
                                     <span class="invalid-feedback" style="display:inline;">
                                         <strong>{{ $errors->first('area') }}</strong>
                                     </span>
                                 @endif
                             </div>
-                        </div>
+                        </div>-->
                         
                         <!-- 職業の入力欄 -->
                         <div class="form-group row">

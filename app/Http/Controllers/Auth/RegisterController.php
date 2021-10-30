@@ -57,7 +57,7 @@ class RegisterController extends Controller
             'occupation'=>['required','string','max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'area'  =>['required','string']
+            //'area'  =>['required','string']
         ]);
     }
 
@@ -76,8 +76,9 @@ class RegisterController extends Controller
             'likes'      => $data['likes'],
             'occupation'=>$data['occupation'],
             'email' => $data['email'],
+            //'area'  =>$data['area'],
             'password' => Hash::make($data['password']),
-            'area'  =>$data['area'],
+
         ]);
     }
 }
