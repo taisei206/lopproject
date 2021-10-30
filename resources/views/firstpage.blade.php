@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.79.0">
-    <title>カバー for Bootstrap · Bootstrap v5.0</title>
+    <title>MOL|MeanigOfLife</title>
 
     <link rel="canonical" href="https://getbootstrap.jp/docs/5.0/examples/cover/">
 
@@ -49,7 +49,7 @@
   </head>
   <body class="d-flex h-100 text-center text-white bg-dark">
     
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column firstpage-back" style="background:url({{ asset('images/haikei3.jpg') }}); 
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column firstpage-back" style="background:url({{ asset('images/haikei7.jpg') }}); 
 background-size:cover;">
   <header class="mb-auto">
     <div>
