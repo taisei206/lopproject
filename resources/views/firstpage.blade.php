@@ -2,11 +2,7 @@
 <!doctype html>
 <html lang="ja" class="h-100">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name=”description” content=”なぜ生きているのか。それを多くの人は考える。生きる意味を見出せる人もいれば見いだせない人もいる。ここではいろいろな人の生きる意味を見て参考にしたり、共感できるサイトです。覗いてみませんか”>
-    <title>生きる意味を共有しよう・LOP|LifeOfPurpose</title>
-
+    @include('layouts.head')
     <link rel="canonical" href="https://getbootstrap.jp/docs/5.0/examples/cover/">
 
     

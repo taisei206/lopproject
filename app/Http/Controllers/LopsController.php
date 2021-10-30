@@ -195,11 +195,11 @@ class LopsController extends Controller
     public function comment(Request $request,lop $lop){
 
         $message = [
-            'comment.max' => '100文字以下にしてください',
+            'comment.max' => '200文字以下にしてください',
           ];
 
         $rules=[
-            'comment'=>'max:100',
+            'comment'=>'max:200',
         ];
 
         $validator = Validator::make($request->all(), $rules, $message);
@@ -231,17 +231,17 @@ class LopsController extends Controller
         //バリデーション
 
         $message = [
-            'name.max'=>'100字以下にしてくさい',
-            'occupation.max' => '100字以下にしてくさい',
-            'likes.max' => '100字以下にしてくさい',
-            'area.max' => '100字以下にしてくさい',
+            'name.max'=>'200字以下にしてくさい',
+            'occupation.max' => '200字以下にしてくさい',
+            'likes.max' => '200字以下にしてくさい',
+           // 'area.max' => '200字以下にしてくさい',
           ];
 
         $rules=[
-            'name'=>'max:100',
-            'occupation'=>'max:100',
-            'likes'=>'max:100',
-            'area' => 'max:100',
+            'name'=>'max:200',
+            'occupation'=>'max:200',
+            'likes'=>'max:200',
+            //'area' => 'max:100',
         ];
 
         $validator = Validator::make($req->all(), $rules, $message);
