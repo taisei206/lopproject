@@ -23,7 +23,7 @@ class LopsController extends Controller
         $action_name=end($action_exp);
         $array=['create','edit','destroy','cont','comment'];
         if(in_array($action_name,$array)){
-            $this->middleware('auth');
+            $this->middleware(['auth','verified']);
         }
     }
     /**
