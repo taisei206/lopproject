@@ -50,7 +50,7 @@ background-size:cover;">
 
   <main class="px-3 ">
     <h1>Let's share meanig of life</h1>
-    <p class="lead">なぜ生きているのか。それを多くの人は考える。生きる意味を見出せない人もいれば見出せる人もいる。ここではいろいろな人の生きる意味を見て参考にしたり、共感できるサイトです。</p>
+    <p class="lead">テストなぜ生きているのか。それを多くの人は考える。生きる意味を見出せない人もいれば見出せる人もいる。ここではいろいろな人の生きる意味を見て参考にしたり、共感できるサイトです。</p>
 
     <p class="lead">
       <a href="{{route('lops.index')}}" class="btn bg-white" style="font-weight: bold">探しに行く</a>
