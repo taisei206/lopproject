@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1 style="color: white">絞り込み検索</h1>
+    <h1 style="color: white">プロフィール検索</h1>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">

@@ -38,7 +38,7 @@ class LopsController extends Controller
         $lops=Lop::orderBy('created_at','desc')->where(function ($query) {
             // 投稿された内容に対して検索機能
         if ($search = request('search')) {
-            $query->where('dream', 'LIKE', "%{$search}%")->orWhere('dreamwhy','LIKE',"%{$search}%")->orWhere('dreamdo','LIKE',"%{$search}%")->orWhere('nowdo','LIKE',"%{$search}%")->orWhere('nowwhy','LIKE',"%{$search}%")
+            $query->where('dream', 'LIKE', "%{$search}%")->orWhere('dreamwhy','LIKE',"%{$search}%")->orWhere('dreamdo','LIKE',"%{$search}%")
             ;
         }
         })->paginate(PAGI_NUM);

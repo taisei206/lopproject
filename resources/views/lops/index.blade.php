@@ -4,7 +4,7 @@
 <h1 style="color: white">みんなの投稿</h1>
 <a href="{{route('lops.create')}}" class="btn btn-success m-1">＋投稿</a>
 <a href="{{route('lops.cont')}}" class="btn btn-success m-1">自分の投稿</a>
-<a href="{{route('lops.squeeze')}}" class="btn btn-success m-1">人で検索する</a>
+<a href="{{route('lops.squeeze')}}" class="btn btn-success m-1">プロフィール検索</a>
 <a href="{{route('lops.index')}}" class="btn btn-secondary m-1">一覧に戻る</a>
 {{--検索--}}
 <form class="form-inline my-2 my-lg-0 ml-2">
@@ -21,7 +21,7 @@
         <h5 class="card-title">{{$lop->dream}}</h5>
         <h6 class="card-subtitle mb-2 text-muted">{{$lop->user->name}}：{{$lop->user->occupation}}：{{$lop->user->age}}歳：{{$lop->user->likes}}</h6>
         <p class="card-text">{!! nl2br(e(Str::limit($lop->dreamwhy, 100))) !!}</p>
-        <a href="{{route('lops.show',$lop)}}" class="btn btn-info">詳細</a>
+        <a href="{{route('lops.show',$lop)}}" class="btn btn-info">詳しく見る</a>
         </div>
     </div>
     @endforeach

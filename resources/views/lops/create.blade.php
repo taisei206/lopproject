@@ -6,14 +6,14 @@
     <form method="POST" action="/lops">
         @csrf
         <div class="form-group">
-            <label style="color: white">意味or夢</label>
+            <label style="color: white">生きる意味or夢</label>
             @error('dream')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
             <input type="text" name="dream" class="form-control"  placeholder="必須項目です。" value="{{old('dream')}}">
         </div>
         <div class="form-group">
-            <label  style="color: white">なんでそれが生きる意味or目的になっているの？</label>
+            <label  style="color: white">なんでそれが生きる意味or夢になっているの？</label>
             @error('dreamwhy')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror

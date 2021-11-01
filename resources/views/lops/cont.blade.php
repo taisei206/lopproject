@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h1 style="color: white">生きる夢共有</h1>
+<h1 style="color: white">自分の投稿一覧</h1>
 <a href="{{route('lops.create')}}" class="btn btn-success">＋投稿</a>
 <a href="{{route('lops.index')}}" class="btn btn-secondary rounded">一覧に戻る</a>
 <div class="row align-items-strech">
