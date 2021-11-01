@@ -7,7 +7,6 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
-                        <a href="{{route('lops.index')}}" class="btn btn-secondary rounded">一覧に戻る</a>
                         <form method="POST" action="{{route('lops.squeezedo')}}">
                             @csrf
                             <!-- 名前の入力欄 -->

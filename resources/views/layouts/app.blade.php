@@ -81,6 +81,7 @@
         </nav>
 
         <main class="py-4 container bg-my-wide rounded">
+            <a href="{{route('lops.index')}}" class="btn btn-secondary rounded m-2">みんなの投稿に戻る</a>
             @yield('content')
         </main>
     </div>

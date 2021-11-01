@@ -49,7 +49,6 @@
         </div>
         
         <button type="submit" class="btn btn-primary">投稿する</button>
-        <a href="{{route('lops.index')}}" class="btn btn-secondary">一覧に戻る</a>
     </form>
 
 @endsection
