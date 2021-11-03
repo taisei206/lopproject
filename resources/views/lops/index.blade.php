@@ -5,6 +5,7 @@
 <a href="{{route('lops.create')}}" class="btn btn-success m-1">＋投稿</a>
 <a href="{{route('lops.cont')}}" class="btn btn-success m-1">自分の投稿</a>
 <a href="{{route('lops.squeeze')}}" class="btn btn-success m-1">プロフィール検索</a>
+<a href="{{route('lops.usershow',['user'=>Auth::user()])}}" class="btn btn-success m-1">ユーザー情報編集</a>
 {{--検索--}}
 <form class="form-inline my-2 my-lg-0 ml-2">
     <div class="form-group mb-0">

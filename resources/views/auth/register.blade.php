@@ -15,7 +15,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">ニックネーム|{{ __('Name') }}<br>※この名前が表示されます</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="必須項目です">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="必須項目20文字以下">
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -113,7 +113,7 @@
                             <label for="gender" class="col-md-4 col-form-label text-md-right">職業：occupation</label>
 
                             <div class="col-md-6" style="padding-top: 8px">
-                                <input id="occupation" type="text" name="occupation" placeholder="必須項目です" required value="{{old('occupation')}}">
+                                <input id="occupation" type="text" name="occupation" placeholder="必須項目30文字以下" required value="{{old('occupation')}}">
                                 @if ($errors->has('occupation'))
                                     <span class="invalid-feedback" style="display:inline;">
                                         <strong>{{ $errors->first('occupation') }}</strong>
@@ -127,13 +127,17 @@
                             <label for="gender" class="col-md-4 col-form-label text-md-right">趣味・好きなこと：likes</label>
 
                             <div class="col-md-6" style="padding-top: 8px">
-                                <input id="likes" type="text" name="likes" placeholder="必須項目です" required value="{{old('occupation')}}">
+                                <input id="likes" type="text" name="likes" placeholder="必須項目100文字以下" required value="{{old('occupation')}}">
                                 @if ($errors->has('likes'))
                                     <span class="invalid-feedback" style="display:inline;">
                                         <strong>{{ $errors->first('likes') }}</strong>
                                     </span>
                                 @endif
                             </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <p>登録後、メールアドレスに確認メールが届きます。メールを確認し有効化してください。
                         </div>
 
                         <div class="form-group row mb-0">
@@ -143,6 +147,8 @@
                                 </button>
                             </div>
                         </div>
+
+
                     </form>
                 </div>
             </div>

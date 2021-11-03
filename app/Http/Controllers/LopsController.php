@@ -21,7 +21,7 @@ class LopsController extends Controller
         $action=Route::currentRouteAction();
         $action_exp=explode('@',$action);
         $action_name=end($action_exp);
-        $array=['create','edit','destroy','cont','comment'];
+        $array=['create','edit','destroy','cont','comment','usershow','useredit'];
         if(in_array($action_name,$array)){
             $this->middleware(['auth','verified']);
         }
@@ -286,5 +286,48 @@ class LopsController extends Controller
         ->paginate(PAGI_NUM);
         //人の投稿一覧を表示する
         return view('lops.index',compact('lops'));
+    }
+
+    //ユーザー情報編集画面
+    public function usershow(){
+       $user=User::find(Auth::user()->id);
+        return view('myauth.usershow',compact('user'));
+    }
+
+    //ユーザー情報編集内容登録
+    public function useredit(Request $req){
+
+           //バリデーション
+
+           $message = [
+            'name.max'=>'20字以下にしてくさい',
+            'occupation.max' => '30字以下にしてくさい',
+            'likes.max' => '100字以下にしてくさい',
+           // 'area.max' => '200字以下にしてくさい',
+          ];
+
+        $rules=[
+            'name'=>'max:20',
+            'occupation'=>'max:30',
+            'likes'=>'max:100',
+            //'area' => 'max:100',
+        ];
+
+        $validator = Validator::make($req->all(), $rules, $message);
+
+        if ($validator->fails()) {
+            return redirect()->
+                        route('lops.usershow')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
+        $user=User::find(Auth::user()->id);
+        $user->name=$req->name;
+        $user->age=$req->age;
+        $user->occupation=$req->occupation;
+        $user->likes=$req->likes;
+        $user->save();
+        return redirect()->route('lops.index');
     }
 }

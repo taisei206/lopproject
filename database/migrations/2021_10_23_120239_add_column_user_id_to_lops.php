@@ -15,7 +15,7 @@ class AddColumnUserIdToLops extends Migration
     {
         Schema::table('lops', function (Blueprint $table) {
             //use_idをlopsテーブルに追加しリレーションを作る
-            $table->integer('user_id')->unsigned()->nullable();
+            $table->unsignedBigInteger('user_id');
         });
     }
 

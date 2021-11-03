@@ -48,9 +48,9 @@
     @csrf
     @method("POST")
     <div class="form-group">
-        <input type="text" name="comment" class="form-control"  value="{{old('comment')}}" placeholder="ここにコメントを書き込む">
+        <input type="text" id="comment" name="comment" class="form-control"  value="{{old('comment')}}" placeholder="ここにコメントを書き込む" oninput="inputbtn()">
     </div>
-    <button type="submit" class="btn btn-primary">コメントを投稿する</button>
+    <button type="submit" id="commentBtn" class="btn btn-primary" disabled>コメントを投稿する</button>
 </form>
 <p style="color:white;">合計{{$comments->count()}}件</p>
 <div class="row align-items-strech">
@@ -64,6 +64,16 @@
     </div>
     @endforeach
 </div>
+
+<script>
+    function inputbtn() {
+    if (document.querySelector("#comment").value==="") {
+        document.querySelector("#commentBtn").disabled = true; 
+    } else {
+        document.querySelector("#commentBtn").disabled = false;
+    }}
+
+</script>
 
 @endsection
 
