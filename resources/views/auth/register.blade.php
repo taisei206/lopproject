@@ -137,7 +137,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <p>登録後、メールアドレスに確認メールが届きます。メールを確認し有効化してください。
+                            <p class="m-1">登録後、メールアドレスに確認メールが届きます。メールを確認し有効化してください。
                         </div>
 
                         <div class="form-group row mb-0">

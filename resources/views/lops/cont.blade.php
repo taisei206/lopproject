@@ -4,7 +4,7 @@
 <h1 style="color: white">自分の投稿一覧</h1>
 <a href="{{route('lops.create')}}" class="btn btn-success">＋投稿</a>
 <div class="row align-items-strech">
-    @foreach ($lops as $lop)
+    @forelse ($lops as $lop)
     <div class="card m-1 bg-my1" style="width: 25rem;">
         <div class="card-body bg-my1">
         <h5 class="card-title"><h5 class="my-white">目的or夢</h5>{{$lop->dream}}</h5>
@@ -24,7 +24,13 @@
         </div>
         @endif
     </div>
-    @endforeach
+    @empty
+    <div class="card m-1" style="width: 20rem;">
+        <div class="card-body bg-my1">
+        <h5 class="card-title">まだ投稿はありません</h5>
+        </div>
+    </div>
+    @endforelse
 </div>
 
 @endsection

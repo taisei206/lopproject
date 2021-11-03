@@ -15,6 +15,8 @@
                     @endif
 
                     You are logged in!
+                    メールの確認が出来ました。
+                    さあ、みんなの投稿を見に行きましょう
                 </div>
             </div>
         </div>

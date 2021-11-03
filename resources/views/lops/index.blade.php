@@ -15,7 +15,7 @@
 </form>
 {{--データ表示--}}
 <div class="row align-items-strech">
-    @foreach ($lops as $lop)
+    @forelse ($lops as $lop)
     <div class="card m-1" style="width: 20rem;">
         <div class="card-body bg-my1">
         <h5 class="card-title">{{$lop->dream}}</h5>
@@ -24,7 +24,13 @@
         <a href="{{route('lops.show',$lop)}}" class="btn btn-info">詳しく見る</a>
         </div>
     </div>
-    @endforeach
+    @empty
+    <div class="card m-1" style="width: 20rem;">
+        <div class="card-body bg-my1">
+        <h5 class="card-title">まだ投稿はありません</h5>
+        </div>
+    </div>
+    @endforelse
 </div>
 
 {{--ページネーション--}}

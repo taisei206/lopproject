@@ -2,7 +2,6 @@
 
 @section('content')
 <h1 style="color: white">生きる夢共有</h1>
-<a href="{{route('lops.index')}}" class="btn btn-secondary">ホームに戻る</a>
 <a href="{{route('lops.create')}}" class="btn btn-success m-1">＋投稿</a>
 <a href="{{route('lops.cont')}}" class="btn btn-success m-1">自分の投稿</a>
 <a href="{{route('lops.squeeze')}}" class="btn btn-success m-1">人で検索する</a>
