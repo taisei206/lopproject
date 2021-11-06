@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', function(){return view('firstpage');});//説明ページ
-
+//Route::get('/', function(){return view('firstpage');});//説明ページ
+Route::get('/','LopsController@index');//説明ページ
 Route::get('lops/usershow','LopsController@usershow')->name('lops.usershow');//ユーザー情報編集画面
 Route::post('lops/useredit','LopsController@useredit')->name('lops.useredit');//ユーザー編集内容登録
 Route::get('lops/detail/{user}','LopsController@detail')->name('lops.detail');//人で検索後に投稿を見る
