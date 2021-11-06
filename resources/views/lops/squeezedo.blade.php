@@ -15,6 +15,7 @@
                 <p class="card-text">年齢：{{$user->age}}歳</p>
                 <p class="card-text">趣味・好きなこと：{{$user->likes}}</p>
                 <a href="{{route('lops.detail',$user->id)}}" class="btn btn-info">投稿を見る</a>
+                <p class="card-text">投稿数：{{$user->lops->count()}}</p>
             </div>
         </div>
     @endforeach

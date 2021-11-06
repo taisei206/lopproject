@@ -22,6 +22,7 @@
         <h6 class="card-subtitle mb-2 text-muted">{{$lop->user->name}}：{{$lop->user->occupation}}：{{$lop->user->age}}歳：{{$lop->user->likes}}</h6>
         <p class="card-text">{!! nl2br(e(Str::limit($lop->dreamwhy, 100))) !!}</p>
         <a href="{{route('lops.show',$lop)}}" class="btn btn-info">詳しく見る</a>
+        <p class="card-text">コメント数：{{$lop->comment->count()}}</p>
         </div>
     </div>
     @empty
