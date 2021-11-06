@@ -11,6 +11,11 @@
 |
 */
 
+if (config('app.env') === 'production' or config('app.env') === 'staging') {
+    // asset()やurl()がhttpsで生成される
+    URL::forceScheme('https');
+}
+
 Route::get('/', function(){return view('firstpage');});//説明ページ
 //Route::get('/','LopsController@index');//説明ページ
 Route::get('lops/usershow','LopsController@usershow')->name('lops.usershow');//ユーザー情報編集画面
