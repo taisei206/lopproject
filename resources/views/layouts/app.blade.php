@@ -1,8 +1,7 @@
 
-<!doctype html>
-<html lang="ja">
-<head>
-    @include('layouts.head')
+@extends('layouts.head')
+
+    @section('head')
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -26,7 +25,8 @@
            background-position: center center;   /* 縦横中央 */
         }
         </style>
-</head>
+ @endsection
+ @section('body')
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -86,4 +86,4 @@
         </main>
     </div>
 </body>
-</html>
+@endsection
