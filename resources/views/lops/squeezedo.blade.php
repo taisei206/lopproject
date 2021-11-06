@@ -10,7 +10,7 @@
     @foreach ($users as $user)
         <div class="card m-1" style="width: 18rem;">
             <div class="card-body bg-my1">
-                <h5 class="card-title">ニックネーム：{{$user->name}}</h5>
+                <h5 class="card-title">NAME：{{$user->name}}</h5>
                 <p class="card-text">職業：{{$user->occupation}}</p>
                 <p class="card-text">年齢：{{$user->age}}歳</p>
                 <p class="card-text">趣味・好きなこと：{{$user->likes}}</p>

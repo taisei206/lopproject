@@ -55,7 +55,7 @@ class RegisterController extends Controller
             'gender' => ['required'],
             'age'   => ['required','integer'],
             'occupation'=>['required','string','max:30'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:150', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'likes'=>['required','string','max:100']
             //'area'  =>['required','string']

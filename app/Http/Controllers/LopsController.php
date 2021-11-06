@@ -68,7 +68,7 @@ class LopsController extends Controller
 
         $message = [
             'dream.required' => '名前を入力してください',
-            'dream.max'=>'200字以下にしてくさい',
+            'dream.max'=>'150字以下にしてくさい',
             'dreamwhy.max' => '500字以下にしてくさい',
             'dreamdo.max' => '500字以下にしてくさい',
             'nowdo.max' => '200字以下にしてくさい',
@@ -77,7 +77,7 @@ class LopsController extends Controller
           ];
 
         $rules=[
-            'dream'=>'required|max:200',
+            'dream'=>'required|max:150',
             'dreamwhy'=>'max:500',
             'dreamdo'=>'max:500',
             'nowdo'=>'max:200',
@@ -139,7 +139,7 @@ class LopsController extends Controller
 
         $message = [
             'dream.required' => 'タイトルを入力してください',
-            'dream.max'=>'200字以下にしてくさい',
+            'dream.max'=>'150字以下にしてくさい',
             'dreamwhy.max' => '500字以下にしてくさい',
             'dreamdo.max' => '500字以下にしてくさい',
             'nowdo.max' => '200字以下にしてくさい',
@@ -148,7 +148,7 @@ class LopsController extends Controller
           ];
 
         $rules=[
-            'dream'=>'required|max:200',
+            'dream'=>'required|max:150',
             'dreamwhy'=>'max:500',
             'dreamdo'=>'max:500',
             'nowdo'=>'max:200',
@@ -195,11 +195,11 @@ class LopsController extends Controller
     public function comment(Request $request,lop $lop){
 
         $message = [
-            'comment.max' => '200文字以下にしてください',
+            'comment.max' => '150文字以下にしてください',
           ];
 
         $rules=[
-            'comment'=>'max:200',
+            'comment'=>'max:150',
         ];
 
         $validator = Validator::make($request->all(), $rules, $message);
@@ -231,16 +231,16 @@ class LopsController extends Controller
         //バリデーション
 
         $message = [
-            'name.max'=>'200字以下にしてくさい',
-            'occupation.max' => '200字以下にしてくさい',
-            'likes.max' => '200字以下にしてくさい',
+            'name.max'=>'20字以下にしてくさい',
+            'occupation.max' => '30字以下にしてくさい',
+            'likes.max' => '100字以下にしてくさい',
            // 'area.max' => '200字以下にしてくさい',
           ];
 
         $rules=[
-            'name'=>'max:200',
-            'occupation'=>'max:200',
-            'likes'=>'max:200',
+            'name'=>'max:20',
+            'occupation'=>'max:30',
+            'likes'=>'max:100',
             //'area' => 'max:100',
         ];
 
