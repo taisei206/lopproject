@@ -32,5 +32,5 @@ Route::get('/home', 'HomeController@index')->name('home');//ログイン機能
 
 
 //ユーザー認証を作成した時に自動的に作成されるルートを下記のように変更
-Auth::routes(['verify' => true]);
+//Auth::routes(['verify' => true]);
 
