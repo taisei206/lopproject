@@ -27,10 +27,11 @@ Route::get('lops/cont','LopsController@cont')->name('lops.cont');//自分の投�
 Route::post('lops/{lop}/comment','lopsController@comment')->name('lops.comment');//コメントデータベースに登録
 Route::resource('lops','LopsController');//基本的な機能
 
-Auth::routes();
+//Auth::routes();
+//ユーザー認証を作成した時に自動的に作成されるルートを下記のように変更
+Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');//ログイン機能
 
 
-//ユーザー認証を作成した時に自動的に作成されるルートを下記のように変更
-//Auth::routes(['verify' => true]);
+
 
