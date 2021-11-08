@@ -12,7 +12,7 @@ class TrustProxies extends Middleware
      *
      * @var array|string
      */
-    protected $proxies;
+    protected $proxies = '*';//メール認証時の有効化を解決するため
 
     /**
      * The headers that should be used to detect proxies.
