@@ -8,6 +8,7 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
+                    <p class="card-text">スマホの場合アカウント登録は右上の三本バーからお願いします。</p>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
